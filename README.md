@@ -191,7 +191,7 @@ Also Django. Thanks Django!
 [django-shield]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white
 [django-url]: https://www.djangoproject.com/
 
-[coverage-shield]: https://raw.github.com/CodeCarefully/WeddingBliss/.github/badge/coverage.svg
+[coverage-shield]: https://raw.githubusercontent.com/CodeCarefully/WeddingBliss/main/.github/badge/coverage.svg
 [coverage-url]: https://github.com/CodeCarefully/WeddingBliss
 
 
