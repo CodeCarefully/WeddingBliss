@@ -169,9 +169,10 @@ Distributed under the GPLv3 Licence. See `LICENSE` for more information.
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-I'd like to thank my beautiful spouse for marrying me and giving me the idea.
-
-Also Django. Thanks Django!
+* I'd like to thank my beautiful spouse for marrying me and giving me the idea.
+* I got some inspiration and a few snippets from [django-wedding-website](https://github.com/czue/django-wedding-website)
+by the lovely [Cory Zue](https://github.com/czue) for his wedding with Rowena 
+* Also Django. Thanks Django!
 
 
 
@@ -191,7 +192,7 @@ Also Django. Thanks Django!
 [django-shield]: https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white
 [django-url]: https://www.djangoproject.com/
 
-[coverage-shield]: https://raw.github.com/CodeCarefully/WeddingBliss/.github/badge/coverage.svg
+[coverage-shield]: .github/badge/coverage.svg?1
 [coverage-url]: https://github.com/CodeCarefully/WeddingBliss
 
 
