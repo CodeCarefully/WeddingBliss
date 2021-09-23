@@ -19,6 +19,7 @@
   <p align="center">
     Wedding invite system and manager
     <br />
+<div align="center" id="version">Version: 0.1a1 GIT:014e2ab</div>
     <a href="https://github.com/CodeCarefully/WeddingBliss/docs"><strong>Explore the docs »</strong></a>
     <br />
     <br />
