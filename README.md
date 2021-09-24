@@ -10,6 +10,7 @@
 [![python][python-shield]][python-url]
 [![gpl][gpl-shield]][gpl-url]
 [![coverage][coverage-shield]][coverage-url]
+[![coverage][tests-shield]][tests-url]
 [<img src="https://gitpod.io/button/open-in-gitpod.svg" height="28px"/>](https://gitpod.io/#https://github.com/CodeCarefully/WeddingBliss)
 
 
@@ -158,6 +159,11 @@ Contributions are what make the open source community such an amazing place to l
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+Make sure your code has tests, and that the built-in ones are passing after your change.
+To run tests:
+```
+coverage run -m pytest
+```
 
 
 <!-- LICENSE -->
@@ -196,5 +202,7 @@ by the lovely [Cory Zue](https://github.com/czue) for his wedding with Rowena
 [coverage-shield]: .github/badge/coverage.svg?1
 [coverage-url]: https://github.com/CodeCarefully/WeddingBliss
 
+[tests-shield]: .github/badge/tests.svg?1
+[tests-url]: https://github.com/CodeCarefully/WeddingBliss
 
 
