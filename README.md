@@ -90,6 +90,10 @@ I've been trying to make a Django version of the project for years, this is my l
 
 ### Installation
 
+Make sure to generate a new secret with:
+```
+python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -164,6 +168,12 @@ To run tests:
 ```
 coverage run -m pytest
 ```
+
+To generate a nice HTML report:
+```
+coverage html
+```
+
 
 
 <!-- LICENSE -->
