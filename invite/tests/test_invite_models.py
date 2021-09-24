@@ -4,7 +4,32 @@ import string
 
 import pytz
 from django.test import TestCase
+
+
+import factory
+import factory.fuzzy
+
 from invite.models import Party, Guest, Weddingevent
+
+
+class WeddingFactory(factory.django.DjangoModelFactory):
+    person1 = factory.fuzzy.FuzzyText(),
+    person2 = factory.fuzzy.FuzzyText(),
+    greeting = factory.fuzzy.FuzzyText(),
+    blurb = factory.fuzzy.FuzzyText(),
+    body = factory.fuzzy.FuzzyText(),
+    location = factory.fuzzy.FuzzyText(),
+    meetingURL = factory.fuzzy.FuzzyText(),
+    time_and_date = datetime.datetime(2023, 11, 20, 20, 8, 7, 127325, tzinfo=pytz.UTC),
+    notepad = factory.fuzzy.FuzzyText(),
+    template_name = "default",
+    body = factory.Faker(
+        'paragraph', nb_sentences=3,
+        variable_nb_sentences=True
+    )
+
+    class Meta:
+        model = Weddingevent
 
 
 class WeddingTest(TestCase):

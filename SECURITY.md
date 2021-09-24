@@ -12,7 +12,7 @@ contributions.
 Report security bugs by opening a ticket here and include the word "SECURITY" in the subject line.
 If you can, use the PGP key below to obfuscate the details, especially if it's critical.
 
-The lead maintainer (me!) will acknowledge your ticket as soon as i physically can, likely within a week max, 
+The lead maintainer (me!) will acknowledge your ticket as soon as I physically can, likely within a week max, 
 and will send a more detailed response 48 hours after that indicating the next steps in 
 handling your report. After the initial reply to your report, 
 the security team will endeavor to keep you informed of the progress towards a fix and 
