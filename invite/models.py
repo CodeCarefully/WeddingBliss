@@ -1,7 +1,6 @@
 import uuid
 
 from django.db import models
-
 from autoslug import AutoSlugField
 from model_utils.models import TimeStampedModel
 from django.conf import settings
@@ -27,7 +26,7 @@ class Weddingevent(TimeStampedModel):
     )
 
     def __str__(self):
-        toret = f"Wedding of { self.person1 } and { self.person2 } at { self.timeanddate }"
+        toret = f"Wedding of { self.person1 } and { self.person2 } at { self.time_and_date }"
         return toret
 
     class Meta:
@@ -56,9 +55,6 @@ class Party(models.Model):
     def __str__(self):
         return 'Party: {}'.format(self.name)
 
-    @classmethod
-    def in_default_order(cls):
-        return cls.objects.order_by('category',  'name')
 
     @property
     def ordered_guests(self):

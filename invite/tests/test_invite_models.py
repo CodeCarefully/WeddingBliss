@@ -61,7 +61,7 @@ class WeddingTest(TestCase):
             party=self.party,
             first_name='Ned',
             last_name='Stark',
-            email = "2@2.com",
+            email = "2@1.com",
             phone = "121212121212",
             kosher_meal = True,
             is_child = False,
@@ -95,5 +95,34 @@ class WeddingTest(TestCase):
         self.guest2.is_attending = True
         self.guest2.save()
         self.assertTrue(self.party.any_guests_attending)
+
+    def test_strigify_wedding(self):
+        self.assertTrue(self.wedding.person1 in str(self.wedding))
+        self.assertTrue(self.wedding.person2 in str(self.wedding))
+        self.assertTrue(str(self.wedding.time_and_date) in str(self.wedding))
+
+    def test_strigify_party(self):
+        self.assertTrue(self.party.name in str(self.party))
+
+    def test_party_guest_emails(self):
+        self.assertTrue(self.guest1.email in  self.party.guest_emails)
+        self.assertTrue(self.guest2.email in self.party.guest_emails)
+
+    def test_party_ordered_guests(self):
+        self.assertTrue(self.guest1 in self.party.ordered_guests)
+        self.assertTrue(self.guest2 in self.party.ordered_guests)
+
+    def test_guest_name(self):
+        self.assertTrue(self.guest1.first_name in  self.guest1.name)
+        self.assertTrue(self.guest1.last_name in self.guest1.name)
+
+        self.assertTrue(self.guest1.first_name in str(self.guest1))
+        self.assertTrue(self.guest1.last_name in str(self.guest1))
+
+    def test_guest_unique_id(self):
+        self.assertTrue(str(self.guest1.pk) == self.guest1.unique_id )
+
+
+
 
 
