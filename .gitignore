@@ -134,3 +134,4 @@ DB.Browser.for.SQLite
 /DevelopmentNotes.md
 /requirements_all.txt
 /static/theme/default/indeximage.jpg
+/staticfiles/
