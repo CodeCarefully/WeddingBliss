@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Wedding</title>
+
+    {% load staticfiles %}
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="center">
+
+
+    <div id="container">
+        <div id="mainContent">
+            <form method="post" action="/rsvp">
+                <h1>
+                    <div class="center">
+                        <img style="width: 977px; height: 684px;" src="{% static "theme/default/indeximage.png" %}"
+                             alt="invitation"/>
+                    </div>
+
+                </h1>
+
+                <p>&nbsp;</p>
+
+                <p>I/We would love to come to your wedding. A check-mark has
+                    been placed before the names of those who will be attending.</p>
+
+                <table border="0" width="200">
+
+                    <tbody>
+
+                    <tr>
+
+                        <td><input name="people[]" value="Person1" type="checkbox"/>Person1
+                        </td>
+
+                        <td><input name="people[]" value="Person2" type="checkbox"/>Person2
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <p>Also</p>
+
+                <p> I'm interested in transportation for <input name="transpeople" value="0" type="text"/>
+                    people from Jerusalem. The bus leaves at approximately
+                    6:30 pm.</p>
+
+                I would like to receive updates at this email address: <input name="email" type="text"/><br/>
+
+                Any additional comments or personal message:
+                <p align="center"><textarea name="freetext" cols="50" rows="6"></textarea><br/>
+
+                    <br/>
+
+                    <input name="RSVP" value="Send my RSVP" type="submit"/>
+                    <input name="code" value="sekret" type="hidden"/>
+
+                    <br/>
+
+                </p>
+
+            </form>
+
+            <p></p>
+
+            <!-- end #mainContent --></div>
+
+        <hr/>
+
+        <div class="center">
+
+
+            <p>Your current RSVP is:<!-- end #container --> </p>
+
+            <p>
+                $people is/are going to be coming with $trans places on the bus reserved.<br>
+                I'm sorry, I can't make it.
+            </p>
+
+            <p><em>If this is incorrect, change
+                the RSVP above and resubmit it.</em></p>
+
+            </center>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire(
+  'Your current RSVP is:',
+  '$people is/are going to be coming with $trans places on the bus reserved.',
+  'success'
+)
+
+</script>
+</body>
+</html>

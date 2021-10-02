@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>Welcome</title>
+    <style type="text/css">
+      .bgpink {
+        background-color: #F5E4CD;
+      }
+
+      .centered {
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+      }
+    </style>
+  </head>
+  <body class="bgpink">
+    <div>
+      <table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+        <tbody>
+          <tr>
+            <td>
+              <br>
+
+              <img style="width: 977px; height: 684px;" src="{% static "theme/default/indeximage.png" %}" alt="Hi!" />
+
+            <td style="width: 50%;">
+              <br>
+              <div style="text-align: center;">
+                <span style="font-family: Courier New,Courier,monospace;">"You don't marry the person you can live with—you marry the person you can't live without."</span>
+                <br style="font-family: Courier New,Courier,monospace;">
+                <br style="font-family: Courier New,Courier,monospace;">
+                <span style="font-family: Courier New,Courier,monospace;">- Unknown</span>
+                <br style="font-family: Courier New,Courier,monospace;">
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
+              <br>
+              <br>
+              <div style="text-align: center;">
+                <form method="get" action="/invite" name="claiminvite">
+                  <input name="code" id="typecode" value="Type the code here" type="text" autofocus="autofocus" onfocus="this.select()">
+                  <br>
+                  <br>
+                  <br>
+                  <br>
+                  <input value="Show invite" type="submit" />
+                </form>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    </div>
+  </body>
+</html>
