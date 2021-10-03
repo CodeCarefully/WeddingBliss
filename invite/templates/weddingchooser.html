@@ -14,6 +14,12 @@
 <body>
 <h1 class="center">Wedding Chooser</h1>
 
+{% for slug, person1, person2 in weddings %}
+  {% if slug %}
+      <p><a href="/w/{{ slug }}">Wedding of {{ person1 }} and {{ person2 }} </a></p>
+
+  {% endif %}
+{% endfor %}
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
