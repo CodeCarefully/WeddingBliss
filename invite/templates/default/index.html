@@ -1,61 +1,85 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
     <title>Welcome</title>
     <style type="text/css">
-      .bgpink {
-        background-color: #F5E4CD;
-      }
+        .bgpink {
+            background-color: #F5E4CD;
+        }
 
-      .centered {
-        display: block;
-        margin-left: auto;
-        margin-right: auto
-      }
+        .fancytable {
+            text-align: left;
+            width: 100%;
+            border = "0";
+            cellpadding = "2";
+            cellspacing = "2";
+
+        }
+
+
+        .centered {
+            display: block;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        #imgthing {
+            width: 977px;
+            height: 684px;
+        }
+
+        .quote {
+            text-align: center;
+            font-family: Courier New, Courier, monospace;
+
+        }
+
+
     </style>
-  </head>
-  <body class="bgpink">
-    <div>
-      <table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+</head>
+<body class="bgpink">
+<div>
+    <table class="fancytable">
         <tbody>
-          <tr>
+        <tr>
             <td>
-              <br>
+                <br>
 
-              <img style="width: 977px; height: 684px;" src="{% static "theme/default/indeximage.png" %}" alt="Hi!" />
+                <img id="imgthing" src="{% static "theme/default/indeximage.png" %}" alt="Banner Image"/>
 
             <td style="width: 50%;">
-              <br>
-              <div style="text-align: center;">
-                <span style="font-family: Courier New,Courier,monospace;">"You don't marry the person you can live with—you marry the person you can't live without."</span>
-                <br style="font-family: Courier New,Courier,monospace;">
-                <br style="font-family: Courier New,Courier,monospace;">
-                <span style="font-family: Courier New,Courier,monospace;">- Unknown</span>
-                <br style="font-family: Courier New,Courier,monospace;">
+                <br>
+                <div class="quote">
+                    <span>"You don't marry the person you can live with—you marry the person you can't live without."</span>
+                    <br><br>
+                    <span>- Unknown</span>
+                    <br>
+
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
                 <br>
                 <br>
-                <br>
-                <br>
-              </div>
-              <br>
-              <br>
-              <div style="text-align: center;">
-                <form method="get" action="/invite" name="claiminvite">
-                  <input name="code" id="typecode" value="Type the code here" type="text" autofocus="autofocus" onfocus="this.select()">
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <input value="Show invite" type="submit" />
-                </form>
-              </div>
+                <div style="text-align: center;">
+                    <form method="get" action="invite" name="claiminvite">
+                        <input name="code" id="typecode" value="Type the code here" type="text" autofocus="autofocus"
+                               onfocus="this.select()">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <input value="Show invite" type="submit"/>
+                    </form>
+                </div>
             </td>
-          </tr>
+        </tr>
         </tbody>
-      </table>
-      <br>
-    </div>
-  </body>
+    </table>
+    <br>
+</div>
+</body>
 </html>
