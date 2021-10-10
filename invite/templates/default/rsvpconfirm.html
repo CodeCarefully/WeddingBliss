@@ -18,18 +18,27 @@
         .center {
             text-align: center;
         }
+
+        .bannerimg {
+            width: 977px;
+            height: 684px;
+        }
+
+        .invitetable {
+            border: 0;
+
+        }
     </style>
 </head>
 <body>
 <div class="center">
-
 
     <div id="container">
         <div id="mainContent">
             <form method="post" action="/rsvp">
                 <h1>
                     <div class="center">
-                        <img style="width: 977px; height: 684px;" src="{% static "theme/default/indeximage.png" %}"
+                        <img class="bannerimg" src="{% static "theme/default/indeximage.png" %}"
                              alt="invitation"/>
                     </div>
 
@@ -40,22 +49,25 @@
                 <p>I/We would love to come to your wedding. A check-mark has
                     been placed before the names of those who will be attending.</p>
 
-                <table border="0" width="200">
+                <center>
 
-                    <tbody>
+                    <table class="invitetable center">
 
-                    <tr>
+                        <tbody>
 
-                        <td><input name="people[]" value="Person1" type="checkbox"/>Person1
-                        </td>
+                        <tr>
 
-                        <td><input name="people[]" value="Person2" type="checkbox"/>Person2
-                        </td>
+                            <td><input name="people[]" value="Person1" type="checkbox"/>Person1
+                            </td>
 
-                    </tr>
+                            <td><input name="people[]" value="Person2" type="checkbox"/>Person2
+                            </td>
 
-                    </tbody>
-                </table>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </center>
 
                 <p>Also</p>
 
@@ -98,10 +110,9 @@
             <p><em>If this is incorrect, change
                 the RSVP above and resubmit it.</em></p>
 
-            </center>
+
         </div>
     </div>
-
 
 </div>
 
@@ -114,5 +125,6 @@
 )
 
 </script>
+
 </body>
 </html>

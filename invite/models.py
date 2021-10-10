@@ -50,7 +50,7 @@ class Party(models.Model):
     wedding = models.ForeignKey('Weddingevent', on_delete=models.CASCADE)
     invitation_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     invite_code_short = models.CharField(max_length=10, null=True, unique=True)
-    invite_code_long = models.UUIDField(default=uuid.uuid4)
+    invite_code_long = models.UUIDField(default=uuid.uuid4, unique=True)
     name = models.TextField()
     category = models.CharField(max_length=30, null=True, blank=True)
     save_the_date_sent = models.DateTimeField(null=True, blank=True, default=None)
