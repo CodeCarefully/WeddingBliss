@@ -1,6 +1,6 @@
 from uuid import UUID
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 from django.template import loader
 from django.views.generic import TemplateView, View
@@ -47,13 +47,54 @@ class InviteView(View):
             raise Http404('Invalid Code')
 
         if validate_uuid4(code):
-            partyobj = get_object_or_404(Party, invite_code_long=code)
+            try:
+                partyobj = Party.objects.get(invite_code_long=code)
+            except Party.DoesNotExist:
+                raise Http404("Invalid code - Try to type again?")
+
         else:
-            partyobj = get_object_or_404(Party, invite_code_short=code)
+            try:
+                partyobj = Party.objects.get(invite_code_short=code)
+            except Party.DoesNotExist:
+                raise Http404("Invalid code - Try to type again?")
 
         weddingobj = get_object_or_404(Weddingevent, slug=kwargs['wed_slug'])
         templatename = weddingobj.template_name
 
         if partyobj is None:
-            raise Http404('Invalid Code')
+            raise Http404('Invalid code - Try to type again?')
         return render(request, templatename + "/invite.html", {'wedding': weddingobj, 'party': partyobj})
+
+    def post(self, request, *args, **kwargs):
+        code = request.GET.get('code')
+        if code is None:
+            raise Http404('Invalid Code')
+
+        if validate_uuid4(code):
+            try:
+                partyobj = Party.objects.get(invite_code_long=code)
+            except Party.DoesNotExist:
+                raise Http404("Invalid code - Try to type again?")
+
+        else:
+            try:
+                partyobj = Party.objects.get(invite_code_short=code)
+            except Party.DoesNotExist:
+                raise Http404("Invalid code - Try to type again?")
+
+        request.POST.get("people[]")
+        request.POST.get("transpeople")
+        request.POST.get("email")
+        request.POST.get("freetext")
+        request.POST.get("code")
+
+        weddingobj = get_object_or_404(Weddingevent, slug=kwargs['wed_slug'])
+        templatename = weddingobj.template_name
+
+        if partyobj is None:
+            raise Http404('Invalid code - Try to type again?')
+
+        #put save code here
+        return render(request, templatename + "/invite.html", {'wedding': weddingobj, 'party': partyobj, 'RSVP': request.POST})
+
+
