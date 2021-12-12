@@ -58,11 +58,18 @@
 
                         <tr>
 
-                            <td><input name="people[]" value="Person1" type="checkbox"/>Person1
-                            </td>
+                            {% for guest in guests %}
+                                 <td><input name="people[]" value="{{  guest.first_name }}-{{ guest.last_name }}" type="checkbox"/>
+                                     {{  guest.first_name }} {{ guest.last_name }}
+                        </td>
+                            {% endfor %}
 
-                            <td><input name="people[]" value="Person2" type="checkbox"/>Person2
-                            </td>
+
+                        <td><input name="people[]" value="Person1" type="checkbox"/>Person1
+                        </td>
+
+                        <td><input name="people[]" value="Person2" type="checkbox"/>Person2
+                        </td>
 
                         </tr>
 
@@ -98,21 +105,6 @@
 
         <hr/>
 
-        <div class="center">
-
-
-            <p>Your current RSVP is:<!-- end #container --> </p>
-
-            <p>
-                $people is/are going to be coming with $trans places on the bus reserved.<br>
-                I'm sorry, I can't make it.
-            </p>
-
-            <p><em>If this is incorrect, change
-                the RSVP above and resubmit it.</em></p>
-
-
-        </div>
     </div>
 
 </div>

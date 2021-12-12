@@ -63,7 +63,11 @@ class InviteView(View):
 
         if partyobj is None:
             raise Http404('Invalid code - Try to type again?')
-        return render(request, templatename + "/invite.html", {'wedding': weddingobj, 'party': partyobj})
+
+        guests = Guest.objects.filter(party=partyobj)
+
+        #get current RSVP data here if existant
+        return render(request, templatename + "/invite.html", {'wedding': weddingobj, 'party': partyobj, 'RSVP':{}, 'guests':guests})
 
     def post(self, request, *args, **kwargs):
         code = request.GET.get('code')
@@ -82,11 +86,11 @@ class InviteView(View):
             except Party.DoesNotExist:
                 raise Http404("Invalid code - Try to type again?")
 
-        request.POST.get("people[]")
-        request.POST.get("transpeople")
-        request.POST.get("email")
-        request.POST.get("freetext")
-        request.POST.get("code")
+        people = request.POST.getlist('people[]')
+        transpeople = request.POST.get("transpeople")
+        email = request.POST.get("email")
+        freetext = request.POST.get("freetext")
+        code = request.POST.get("code")
 
         weddingobj = get_object_or_404(Weddingevent, slug=kwargs['wed_slug'])
         templatename = weddingobj.template_name
@@ -94,7 +98,17 @@ class InviteView(View):
         if partyobj is None:
             raise Http404('Invalid code - Try to type again?')
 
+
+        rsvpdata = {
+            "people": people,
+            "transpeople": transpeople,
+            "email": email,
+            "freetext": freetext,
+            "code": code,
+            "countpeople": len(people)
+        }
+
         #put save code here
-        return render(request, templatename + "/invite.html", {'wedding': weddingobj, 'party': partyobj, 'RSVP': request.POST})
+        return render(request, templatename + "/rsvpconfirm.html", {'wedding': weddingobj, 'party': partyobj, 'RSVP': rsvpdata})
 
 
